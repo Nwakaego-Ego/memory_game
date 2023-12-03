@@ -12,6 +12,8 @@ const cardSet = [
   { image: "/red.svg" },
 ];
 
+let idCounter = 1;
+
 const Memory_card = () => {
   const [card, setCard] = useState([]);
   const [turn, setTurn] = useState(0);
@@ -19,7 +21,8 @@ const Memory_card = () => {
   const shuffleCard = () => {
     const shuffle = [...cardSet, ...cardSet]
       .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }));
+      //   .map((card) => ({ ...card, id: Math.random() }));
+      .map((card) => ({ ...card, id: idCounter++ }));
 
     setCard(shuffle);
   };
