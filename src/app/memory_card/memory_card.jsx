@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import "./memory_card.css";
 
 const cardSet = [
-  { image: "/camera.svg" },
-  { image: "/card.svg" },
-  { image: "/camera.svg" },
-  { image: "/card.svg" },
-  { image: "/camera.svg" },
-  { image: "/card.svg" },
+  { image: "/blue.svg" },
+  { image: "/green1.svg" },
+  { image: "/red.svg" },
+  { image: "/blue.svg" },
+  { image: "/green1.svg" },
+  { image: "/red.svg" },
 ];
 
 const Memory_card = () => {
@@ -31,7 +31,7 @@ const Memory_card = () => {
   //   }, [card]);
 
   return (
-    <div className="bg-neutral-700">
+    <div className="bg-[#1C1525]">
       <div>Memory Card</div>
       <button
         onClick={shuffleCard}
@@ -47,7 +47,7 @@ const Memory_card = () => {
                 height={100}
                 src={cardItem.image}
                 alt="Food Image"
-                className="border  "
+                className="border border-blue-600  "
               />
             </div>
             <div>
@@ -56,7 +56,7 @@ const Memory_card = () => {
                 height={100}
                 src="/card.svg"
                 alt="Food Image"
-                className="border  "
+                className="border border-blue-600  "
               />
             </div>
           </div>
