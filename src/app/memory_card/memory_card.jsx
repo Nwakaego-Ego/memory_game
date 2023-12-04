@@ -34,37 +34,44 @@ const Memory_card = () => {
   //   }, [card]);
 
   return (
-    <div className="">
+    <div className="memory-card-container">
       <div>Memory Card</div>
       <button
         onClick={shuffleCard}
-        className="w-20 h-10  bg-[#8AA4E9] rounded-xl cursor-pointer"
-      ></button>
+        className="w-20 h-10 bg-[#8AA4E9] rounded-xl cursor-pointer"
+      >
+        Shuffle
+      </button>
 
-      {card.map((cardItem) => (
-        <div key={cardItem.id}>
-          <div className="flex flex-row">
-            <div>
-              <Image
-                width={100}
-                height={100}
-                src={cardItem.image}
-                alt="Food Image"
-                className="border border-blue-600  img"
-              />
-            </div>
-            <div>
-              <Image
-                width={100}
-                height={100}
-                src="/witch.avif"
-                alt="Food Image"
-                className="border border-blue-600  img"
-              />
-            </div>
+      <div className="grid-img">
+        {card.map((cardItem) => (
+          <div key={cardItem.id} className="img">
+            <Image
+              width={100}
+              height={100}
+              src={cardItem.image}
+              alt="Food Image"
+              className="border border-blue-600 img-content"
+            />
+            <Image
+              width={100}
+              height={100}
+              src="/witch.avif"
+              alt="Witch Image"
+              className="border border-blue-600 img-content"
+            />
           </div>
-        </div>
-      ))}
+        ))}
+        {/* <div className="img">
+            <Image
+              width={100}
+              height={100}
+              src="/witch.avif"
+              alt="Witch Image"
+              className="border border-blue-600 img-content"
+            />
+          </div> */}
+      </div>
     </div>
   );
 };
