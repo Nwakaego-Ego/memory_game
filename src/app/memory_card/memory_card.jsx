@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import "./memory_card.css";
 
 const cardSet = [
-  { image: "/blue.svg" },
-  { image: "/green1.svg" },
-  { image: "/red.svg" },
-  { image: "/blue.svg" },
-  { image: "/green1.svg" },
-  { image: "/red.svg" },
+  { image: "/jollof_rice.png" },
+  { image: "/nkwobi.png" },
+  { image: "/palm_wine.png" },
+  { image: "/garri.png" },
+  { image: "/egusi.png" },
+  { image: "/fufu.png" },
 ];
 
 let idCounter = 1;
@@ -21,8 +21,8 @@ const Memory_card = () => {
   const shuffleCard = () => {
     const shuffle = [...cardSet, ...cardSet]
       .sort(() => Math.random() - 0.5)
-      //   .map((card) => ({ ...card, id: Math.random() }));
-      .map((card) => ({ ...card, id: idCounter++ }));
+      .map((card) => ({ ...card, id: Math.random() }));
+    //   .map((card) => ({ ...card, id: idCounter++ }));
 
     setCard(shuffle);
   };
@@ -34,7 +34,7 @@ const Memory_card = () => {
   //   }, [card]);
 
   return (
-    <div className="bg-[#1C1525]">
+    <div className="">
       <div>Memory Card</div>
       <button
         onClick={shuffleCard}
@@ -43,23 +43,23 @@ const Memory_card = () => {
 
       {card.map((cardItem) => (
         <div key={cardItem.id}>
-          <div className="flex">
+          <div className="flex flex-row">
             <div>
               <Image
                 width={100}
                 height={100}
                 src={cardItem.image}
                 alt="Food Image"
-                className="border border-blue-600  "
+                className="border border-blue-600  img"
               />
             </div>
             <div>
               <Image
                 width={100}
                 height={100}
-                src="/card.svg"
+                src="/witch.avif"
                 alt="Food Image"
-                className="border border-blue-600  "
+                className="border border-blue-600  img"
               />
             </div>
           </div>
