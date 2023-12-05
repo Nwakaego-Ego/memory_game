@@ -81,7 +81,11 @@ const Memory_card = () => {
             <SingleCard
               cardItem={cardItem}
               handleSwitch={handleSwitch}
-              flipped={card === choiceone || card === choicetwo || card.matched}
+              flipped={
+                cardItem === choiceone ||
+                cardItem === choicetwo ||
+                cardItem.matched
+              }
             />
           </div>
         ))}

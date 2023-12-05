@@ -8,7 +8,7 @@ const singleCard = ({ cardItem, handleSwitch, flipped }) => {
   };
   return (
     <>
-      <div className="card">
+      <div className="card img">
         <div className={flipped ? "flipped" : ""}>
           <Image
             width={100}
@@ -17,6 +17,7 @@ const singleCard = ({ cardItem, handleSwitch, flipped }) => {
             alt="Food Image"
             className="border border-blue-600 img-content front"
           />
+
           <Image
             width={100}
             height={100}

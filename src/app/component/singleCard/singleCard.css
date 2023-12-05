@@ -14,10 +14,12 @@
 }
 
 .card .front {
-  transform: rotateY(90deg);
+  /* transform: rotateY(90deg); */
+  display: none;
   position: absolute;
 }
 
 .flipped .front {
+  display: block;
   transform: rotateY(0deg);
 }
