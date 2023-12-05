@@ -5,12 +5,12 @@ import SingleCard from "../component/singleCard/singleCard";
 import "./memory_card.css";
 
 const cardSet = [
-  { image: "/jollof_rice.png" },
-  { image: "/nkwobi.png" },
-  { image: "/palm_wine.png" },
-  { image: "/garri.png" },
-  { image: "/egusi.png" },
-  { image: "/fufu.png" },
+  { image: "/jollof_rice.png", matched: false },
+  { image: "/nkwobi.png", matched: false },
+  { image: "/palm_wine.png", matched: false },
+  { image: "/garri.png", matched: false },
+  { image: "/egusi.png", matched: false },
+  { image: "/fufu.png", matched: false },
 ];
 
 let idCounter = 1;
@@ -41,10 +41,18 @@ const Memory_card = () => {
   useEffect(() => {
     if (setChoiceOne && choicetwo) {
       if (choiceone.image === choicetwo.image) {
-        console.log("same");
+        setCard((prevCard) => {
+          return prevCard.map((cardItem) => {
+            if (cardItem.src === choiceone.src) {
+              return { ...cardItem, matched: true };
+            } else {
+              return cardItem;
+            }
+          });
+        });
         reset();
       } else {
-        console.log("not same");
+        console.log("These cards do not match");
         reset();
       }
     }
