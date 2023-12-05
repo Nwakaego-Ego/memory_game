@@ -15,7 +15,6 @@ const singleCard = ({ cardItem, handleSwitch }) => {
           src={cardItem.image}
           alt="Food Image"
           className="border border-blue-600 img-content"
-          onClick={handleImage}
         />
         <Image
           width={100}
@@ -23,6 +22,7 @@ const singleCard = ({ cardItem, handleSwitch }) => {
           src="/witch.avif"
           alt="Witch Image"
           className="border border-blue-600 img-content"
+          onClick={handleImage}
         />
       </div>
     </>

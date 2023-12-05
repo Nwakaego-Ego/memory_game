@@ -43,7 +43,7 @@ const Memory_card = () => {
       if (choiceone.image === choicetwo.image) {
         setCard((prevCard) => {
           return prevCard.map((cardItem) => {
-            if (cardItem.src === choiceone.src) {
+            if (cardItem.image === choiceone.image) {
               return { ...cardItem, matched: true };
             } else {
               return cardItem;
@@ -52,11 +52,12 @@ const Memory_card = () => {
         });
         reset();
       } else {
-        console.log("These cards do not match");
         reset();
       }
     }
   }, [choiceone, choicetwo]);
+
+  console.log(card);
 
   const reset = () => {
     setChoiceOne(null);
