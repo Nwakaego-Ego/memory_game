@@ -1,6 +1,7 @@
 "use client";
-import Image from "next/image";
+
 import React, { useState, useEffect } from "react";
+import SingleCard from "../component/singleCard/singleCard";
 import "./memory_card.css";
 
 const cardSet = [
@@ -17,6 +18,8 @@ let idCounter = 1;
 const Memory_card = () => {
   const [card, setCard] = useState([]);
   const [turn, setTurn] = useState(0);
+  const [choiceone, setChoiceOne] = useState();
+  const [choicetwo, setChoiceTwo] = useState();
 
   const shuffleCard = () => {
     const shuffle = [...cardSet, ...cardSet]
@@ -27,11 +30,31 @@ const Memory_card = () => {
     setCard(shuffle);
   };
 
-  console.log(card, turn);
-
   //   useEffect(() => {
   //     console.log(card);
   //   }, [card]);
+
+  const handleSwitch = (cardItem) => {
+    choiceone ? setChoiceTwo(cardItem) : setChoiceOne(cardItem);
+  };
+
+  useEffect(() => {
+    if (setChoiceOne && choicetwo) {
+      if (choiceone.image === choicetwo.image) {
+        console.log("same");
+        reset();
+      } else {
+        console.log("not same");
+        reset();
+      }
+    }
+  }, [choiceone, choicetwo]);
+
+  const reset = () => {
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurn((prevTurn) => prevTurn + 1);
+  };
 
   return (
     <div className="memory-card-container">
@@ -46,31 +69,9 @@ const Memory_card = () => {
       <div className="grid-img">
         {card.map((cardItem) => (
           <div key={cardItem.id} className="img">
-            <Image
-              width={100}
-              height={100}
-              src={cardItem.image}
-              alt="Food Image"
-              className="border border-blue-600 img-content"
-            />
-            <Image
-              width={100}
-              height={100}
-              src="/witch.avif"
-              alt="Witch Image"
-              className="border border-blue-600 img-content"
-            />
+            <SingleCard cardItem={cardItem} handleSwitch={handleSwitch} />
           </div>
         ))}
-        {/* <div className="img">
-            <Image
-              width={100}
-              height={100}
-              src="/witch.avif"
-              alt="Witch Image"
-              className="border border-blue-600 img-content"
-            />
-          </div> */}
       </div>
     </div>
   );
