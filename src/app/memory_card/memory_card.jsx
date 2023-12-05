@@ -77,8 +77,12 @@ const Memory_card = () => {
 
       <div className="grid-img">
         {card.map((cardItem) => (
-          <div key={cardItem.id} className="img">
-            <SingleCard cardItem={cardItem} handleSwitch={handleSwitch} />
+          <div key={cardItem.id} className="">
+            <SingleCard
+              cardItem={cardItem}
+              handleSwitch={handleSwitch}
+              flipped={card === choiceone || card === choicetwo || card.matched}
+            />
           </div>
         ))}
       </div>
