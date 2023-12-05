@@ -52,7 +52,7 @@ const Memory_card = () => {
         });
         reset();
       } else {
-        reset();
+        setTimeout(() => reset(), 1000);
       }
     }
   }, [choiceone, choicetwo]);
