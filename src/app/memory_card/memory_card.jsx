@@ -27,13 +27,18 @@ const Memory_card = () => {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
     //   .map((card) => ({ ...card, id: idCounter++ }));
-
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCard(shuffle);
   };
 
   const handleSwitch = (cardItem) => {
     choiceone ? setChoiceTwo(cardItem) : setChoiceOne(cardItem);
   };
+
+  useEffect(() => {
+    shuffleCard();
+  }, []);
 
   useEffect(() => {
     if (setChoiceOne && choicetwo) {
@@ -51,7 +56,7 @@ const Memory_card = () => {
         });
         reset();
       } else {
-        setTimeout(() => reset(), 1000);
+        setTimeout(() => reset(), 2000);
       }
     }
   }, [choiceone, choicetwo]);
@@ -62,6 +67,7 @@ const Memory_card = () => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurn((prevTurn) => prevTurn + 1);
+    setDisabled(false);
   };
 
   return (
@@ -75,6 +81,7 @@ const Memory_card = () => {
         >
           Shuffle
         </button>
+        <div className="text-black">{turn}</div>
       </div>
 
       <div className="grid-img">

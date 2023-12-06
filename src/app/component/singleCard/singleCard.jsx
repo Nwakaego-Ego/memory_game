@@ -2,9 +2,11 @@ import React from "react";
 import Image from "next/image";
 import "./singleCard.css";
 
-const singleCard = ({ cardItem, handleSwitch, flipped }) => {
+const singleCard = ({ cardItem, handleSwitch, flipped, disabled }) => {
   const handleImage = () => {
-    handleSwitch(cardItem);
+    if (!disabled) {
+      handleSwitch(cardItem);
+    }
   };
   return (
     <>
