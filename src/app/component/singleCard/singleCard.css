@@ -1,7 +1,8 @@
-.img-content {
+/* .img-content {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 0.5s ease;
 }
 
 .img {
@@ -9,17 +10,60 @@
   height: 100px;
 }
 
+.front-img {
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
 .card {
   position: relative;
 }
 
 .card .front {
-  /* transform: rotateY(90deg); */
   display: none;
+
   position: absolute;
 }
 
 .flipped .front {
   display: block;
-  /* transform: rotateY(0deg); */
+} */
+
+.img-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1; /* Start with full opacity */
+  transition: opacity 0.5s ease; /* Add a transition for the opacity property */
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+.front-img {
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+.card {
+  position: relative;
+}
+
+.card .front {
+  opacity: 0; /* Start with the front hidden */
+  visibility: hidden; /* Hide the front element */
+  position: absolute;
+  transition: opacity 0.5s ease, visibility 0s 0.5s; /* Add transitions for opacity and visibility */
+}
+
+.flipped .front {
+  opacity: 1; /* Show the front when the flipped class is applied */
+  visibility: visible; /* Make the front element visible */
+  transition: opacity 0.5s ease, visibility 0s; /* Adjust transitions for opacity and visibility */
 }

@@ -5,9 +5,9 @@ import SingleCard from "../component/singleCard/singleCard";
 import "./memory_card.css";
 
 const cardSet = [
-  { image: "/jollof_rice.png", matched: false },
-  { image: "/nkwobi.png", matched: false },
+  { image: "/jollof1.png", matched: false },
   { image: "/palm_wine.png", matched: false },
+  { image: "/nkwobi3.png", matched: false },
   { image: "/garri.png", matched: false },
   { image: "/egusi.png", matched: false },
   { image: "/fufu.png", matched: false },
@@ -20,6 +20,7 @@ const Memory_card = () => {
   const [turn, setTurn] = useState(0);
   const [choiceone, setChoiceOne] = useState();
   const [choicetwo, setChoiceTwo] = useState();
+  const [disabled, setDisabled] = useState(false);
 
   const shuffleCard = () => {
     const shuffle = [...cardSet, ...cardSet]
@@ -30,16 +31,14 @@ const Memory_card = () => {
     setCard(shuffle);
   };
 
-  //   useEffect(() => {
-  //     console.log(card);
-  //   }, [card]);
-
   const handleSwitch = (cardItem) => {
     choiceone ? setChoiceTwo(cardItem) : setChoiceOne(cardItem);
   };
 
   useEffect(() => {
     if (setChoiceOne && choicetwo) {
+      setDisabled(true);
+
       if (choiceone.image === choicetwo.image) {
         setCard((prevCard) => {
           return prevCard.map((cardItem) => {
@@ -66,14 +65,17 @@ const Memory_card = () => {
   };
 
   return (
-    <div className="memory-card-container">
-      <div>Memory Card</div>
-      <button
-        onClick={shuffleCard}
-        className="w-20 h-10 bg-[#8AA4E9] rounded-xl cursor-pointer"
-      >
-        Shuffle
-      </button>
+    <div className="text-center p-8 text-lg text font-bold text-white">
+      <div className="">
+        <div className="text-[#352549]">Memory Card</div>
+        <p className="text-[#352549]">Nigeria Local Dish Edition</p>
+        <button
+          onClick={shuffleCard}
+          className=" text-white bg-[#352A4B] w-32 h-12 rounded-xl cursor-pointer"
+        >
+          Shuffle
+        </button>
+      </div>
 
       <div className="grid-img">
         {card.map((cardItem) => (
@@ -86,6 +88,7 @@ const Memory_card = () => {
                 cardItem === choicetwo ||
                 cardItem.matched
               }
+              disabled={disabled}
             />
           </div>
         ))}

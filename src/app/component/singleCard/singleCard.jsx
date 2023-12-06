@@ -15,7 +15,7 @@ const singleCard = ({ cardItem, handleSwitch, flipped }) => {
             height={100}
             src={cardItem.image}
             alt="Food Image"
-            className="border border-blue-600 img-content front"
+            className=" img-content front front-img"
           />
 
           <Image
@@ -23,7 +23,7 @@ const singleCard = ({ cardItem, handleSwitch, flipped }) => {
             height={100}
             src="/witch.avif"
             alt="Witch Image"
-            className="border border-blue-600 img-content back"
+            className=" img-content back"
             onClick={handleImage}
           />
         </div>
