@@ -10,7 +10,7 @@ const singleCard = ({ cardItem, handleSwitch, flipped, disabled }) => {
   };
   return (
     <>
-      <div className="card img">
+      <div className="card img cursor-pointer">
         <div className={flipped ? "flipped" : ""}>
           <Image
             width={100}

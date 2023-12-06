@@ -73,7 +73,7 @@ const Memory_card = () => {
   return (
     <div className="text-center p-8 text-lg text font-bold text-white">
       <div className="">
-        <div className="text-[#352549]">Memory Card</div>
+        <div className="text-[#352549]">Memory Game</div>
         <p className="text-[#352549]">Nigeria Local Dish Edition</p>
         <button
           onClick={shuffleCard}
