@@ -12,8 +12,14 @@
   }
 
   .img {
-    width: 70px;
+    width: 80px;
     height: 100px;
+  }
+
+  .front-img {
+    width: 50px;
+    margin-left: 15px;
+    z-index: 1;
   }
 }
 
@@ -25,7 +31,13 @@
   }
 
   .img {
-    width: 70px;
+    width: 80px;
     height: 100px;
+  }
+
+  .front-img {
+    width: 50px;
+    margin-left: 15px;
+    z-index: 1;
   }
 }
