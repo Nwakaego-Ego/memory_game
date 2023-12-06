@@ -2,6 +2,30 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 100px;
-  /* padding: 30px;
-  margin-left: 50px; */
+}
+
+@media (max-width: 640px) {
+  .grid-img {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+  }
+
+  .img {
+    width: 70px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-img {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+  }
+
+  .img {
+    width: 70px;
+    height: 100px;
+  }
 }
